@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Button
+        android:text="환경설정"
+        android:id="@+id/setting_page_button"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:text="게시판"
+        android:id="@+id/board_page_button"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:text="파일 가져오기"
+        android:id="@+id/file_page"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:text="지도"
+        android:id="@+id/map_page"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <Button
+        android:text="통신"
+        android:id="@+id/communication_page"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+</LinearLayout>
