@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val boardPageButton: Button = findViewById(R.id.board_page_button)
 
         boardPageButton.setOnClickListener {
-            val intent = Intent(this, SettingActivity::class.java)
+            val intent = Intent(this, BoardActivity::class.java)
             startActivity(intent)
         }
     }
