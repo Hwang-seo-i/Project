@@ -10,17 +10,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val settingPageButton: Button = findViewById(R.id.setting_page_button)
-
+        val settingPageButton: Button = findViewById(R.id.btnSettings)
         settingPageButton.setOnClickListener {
             val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
 
-        val boardPageButton: Button = findViewById(R.id.board_page_button)
-
+        val boardPageButton: Button = findViewById(R.id.btnBoard)
         boardPageButton.setOnClickListener {
             val intent = Intent(this, BoardActivity::class.java)
+            startActivity(intent)
+        }
+
+        val filePageButton: Button = findViewById(R.id.btnFile)
+        filePageButton.setOnClickListener {
+            val intent = Intent(this, FileActivity::class.java)
+            startActivity(intent)
+        }
+
+        val mapPageButton: Button = findViewById(R.id.btnMap)
+        mapPageButton.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
+
+        val httpPageButton: Button = findViewById(R.id.btnHttp)
+        httpPageButton.setOnClickListener {
+            val intent = Intent(this, HttpActivity::class.java)
             startActivity(intent)
         }
     }

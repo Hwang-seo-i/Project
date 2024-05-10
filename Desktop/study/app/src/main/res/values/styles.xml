@@ -12,4 +12,9 @@
         <item name="colorPrimaryDark">#6FAAEA</item>
         <item name="colorAccent">#E5F1CE</item>
     </style>
+
+    <style name="MenuButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+            <item name="cornerRadius">16dp</item>
+    </style>
+
 </resources>

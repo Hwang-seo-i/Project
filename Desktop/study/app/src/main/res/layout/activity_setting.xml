@@ -439,7 +439,7 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="주간/야간 모드"
+                android:text="@string/night_day"
                 android:textSize="20sp" />
 
             <TextView
@@ -449,7 +449,7 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:textColor="#3FA246"
-                android:text="자동으로 변경"
+                android:text="@string/auto"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>

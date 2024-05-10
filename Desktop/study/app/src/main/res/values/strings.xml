@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Project</string>
+    <string name="layout_board">게시판</string>
+    <string name="layout_add_board">게시판 추가</string>
+    <string name="title">제목</string>
+    <string name="date">날짜</string>
+    <string name="save">저장</string>
+    <string name="date_info">날짜 정보</string>
+    <string name="night_day">주간/야간 모드</string>
+    <string name="auto">자동으로 변경</string>
 </resources>
