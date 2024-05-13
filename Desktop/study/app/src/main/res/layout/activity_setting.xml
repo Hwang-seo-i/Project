@@ -111,6 +111,7 @@
             android:text="동태설정" />
 
         <LinearLayout
+            android:id="@+id/location_select_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -146,6 +147,7 @@
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
+            android:id="@+id/auto_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -159,15 +161,19 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="동태 위치"
+                android:text="동태 자동입력"
                 android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:id="@+id/backIcon1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
                 android:src="@drawable/arrow_right" />
         </LinearLayout>
 
@@ -214,7 +220,8 @@
             android:layout_marginVertical="10dp"
             android:background="@android:color/darker_gray" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/voice_list_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -222,15 +229,18 @@
 
             <TextView
                 android:id="@+id/voice_list"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
                 android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
                 android:text="안전운전 음성안내 항목"
                 android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:id="@+id/backIcon2"
@@ -239,7 +249,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:src="@drawable/arrow_right" />
-        </RelativeLayout>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -251,8 +261,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -272,8 +282,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:textColor="#3FA246"
                 android:text="최적길·최소소요시간길"
+                android:textColor="#3FA246"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -306,9 +316,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:gravity="right"
                 android:clickable="true"
                 android:focusable="true"
+                android:gravity="right"
                 android:text="파란색"
                 android:textColor="#3FA246"
                 android:textSize="20sp" />
@@ -324,8 +334,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -407,7 +417,7 @@
                 android:layout_marginHorizontal="5dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="지도 스타일"
+                android:text="@string/map_style"
                 android:textSize="20sp" />
 
             <ImageView
@@ -448,8 +458,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:textColor="#3FA246"
                 android:text="@string/auto"
+                android:textColor="#3FA246"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
