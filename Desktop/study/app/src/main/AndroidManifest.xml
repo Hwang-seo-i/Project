@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Project"
         tools:targetApi="31" >
         <activity
-            android:name=".Fragment.RouteGuideDialogFragment"
+            android:name=".Fragment.RouteGuideDialogColorFragment"
             android:exported="false" />
         <activity
             android:name=".Fragment.VoiceGuideDialogFragment"
@@ -31,7 +31,7 @@
             android:name=".ToolBar"
             android:exported="false" />
         <activity
-            android:name=".AddBoardActivity"
+            android:name=".board.AddBoardActivity"
             android:exported="false" />
         <activity
             android:name=".HttpActivity"
@@ -43,7 +43,7 @@
             android:name=".FileActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardActivity"
+            android:name=".board.BoardActivity"
             android:exported="false" />
         <activity
             android:name=".DatePickerActivity"

@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.project.board
 
 import android.widget.Toast
 import android.widget.Button
@@ -9,6 +9,7 @@ import android.os.Bundle
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
 import android.app.DatePickerDialog
+import com.example.project.R
 
 class AddBoardActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.project.dataclass
 
 data class BoardDataClass(
     val number: Int,
