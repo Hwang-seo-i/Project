@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.project.dataclass.BoardDataClass
+import com.example.project.BoardDataClass
 import com.example.project.R
 
 class BoardAdapterActivity(private val data: List<BoardDataClass>) : RecyclerView.Adapter<BoardAdapterActivity.BoardViewHolder>() {

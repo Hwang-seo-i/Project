@@ -221,7 +221,7 @@
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
-            android:id="@+id/voice_list_layout"
+            android:id="@+id/voice_guide_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -259,6 +259,7 @@
             android:textSize="15sp" />
 
         <LinearLayout
+            android:id="@+id/path_search_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -294,6 +295,7 @@
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
+            android:id="@+id/path_color_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -319,7 +321,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="right"
-                android:text="파란색"
+                android:text=""
                 android:textColor="#3FA246"
                 android:textSize="20sp" />
         </LinearLayout>

@@ -12,6 +12,7 @@
     <string name="map_style">지도 스타일</string>
     <string name="blue">파란색</string>
     <string name="green">초록색</string>
-    <string name="yello">노란색</string>
     <string name="red">빨간색</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -12,43 +12,43 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
 import com.example.project.R
 
-class LocationSelectDialogFragment : DialogFragment() {
+class PathSearchFragment : DialogFragment() {
 
     private lateinit var radioGroup: RadioGroup
 
-    // 콜백 인터페이스 정의
-    interface LocationSelectListener {
+    interface RouteGuideListener {
+        var pathSearchLayout: LinearLayout
+
         fun onLocationSelected(position: String)
     }
 
-    private var listener: LocationSelectListener? = null
+    private var listener: RouteGuideListener? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        listener = context as? LocationSelectListener
+        listener = context as? RouteGuideListener
+            ?: throw ClassCastException("$context must implement LocationSelectListener")
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_location_select, container, false)
+        return inflater.inflate(R.layout.path_search_option, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        radioGroup = view.findViewById(R.id.RadioGroup)
+        radioGroup = view.findViewById(R.id.radio_group)
 
         view.findViewById<AppCompatButton>(R.id.dialog_yes_btn).setOnClickListener {
-            val selectedRadioButtonId = radioGroup.checkedRadioButtonId
-            val selectedRadioButton = view.findViewById<RadioButton>(selectedRadioButtonId)
-            val position = selectedRadioButton.text.toString()
+            val seletedRadioButtonId = radioGroup.checkedRadioButtonId
+            val seletedRadioButton = view.findViewById<RadioButton>(seletedRadioButtonId)
+            val position = seletedRadioButton.text.toString()
 
-            // 선택된 위치를 Activity에 알림
-            listener?.onLocationSelected(if (position.contains("왼쪽")) "왼쪽" else "오른쪽")
-            dismiss()
         }
 
         view.findViewById<AppCompatButton>(R.id.dialog_no_btn).setOnClickListener {

@@ -15,12 +15,13 @@
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        tools:text="경로 안내 색상"/>
+        tools:text="경로 탐색 옵션"/>
 
     <RadioGroup
-        android:id="@+id/RadioGroup"
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/radioButton"
@@ -42,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="@string/yello" />
+            android:text="노란색" />
 
         <RadioButton
             android:id="@+id/radioButton4"
