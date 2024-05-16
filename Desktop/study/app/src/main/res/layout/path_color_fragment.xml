@@ -18,16 +18,23 @@
             tools:text="경로 안내 색상" />
 
         <RadioGroup
-            android:id="@+id/radio_group2"
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/btn_red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/red"
+                android:checked="true"
+                android:textStyle="bold" />
+
+            <RadioButton
                 android:id="@+id/btn_blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/blue"
                 android:textStyle="bold" />
 
@@ -45,12 +52,6 @@
                 android:text="노란색"
                 android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/btn_red"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/red"
-                android:textStyle="bold" />
         </RadioGroup>
 
     <LinearLayout

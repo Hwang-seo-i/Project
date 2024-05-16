@@ -9,6 +9,7 @@ import android.os.Bundle
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
 import android.app.DatePickerDialog
+import android.widget.TextView
 import com.example.project.R
 
 class AddBoardActivity : AppCompatActivity() {
@@ -20,6 +21,9 @@ class AddBoardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_board)
+
+        val titleTextView: TextView = findViewById(R.id.title_text_view)
+        titleTextView.text = getString(R.string.layout_add_board)
 
         titleEditText = findViewById(R.id.text_input_title)
         selectedDateTextView = findViewById(R.id.text_selected_date)

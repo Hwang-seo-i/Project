@@ -22,7 +22,9 @@
                 android:layout_height="20dp"
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
-                android:src="@drawable/green_back_arrow" />
+                android:src="@drawable/green_back_arrow"
+                android:clickable="true"
+                android:focusable="true" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -321,7 +323,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="right"
-                android:text=""
+                android:text="파랑색"
                 android:textColor="#3FA246"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -404,7 +406,8 @@
             android:layout_marginVertical="10dp"
             android:background="@android:color/darker_gray" />
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/map_style_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -412,24 +415,23 @@
 
             <TextView
                 android:id="@+id/map_style"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
                 android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="@string/map_style"
+                android:text="지도 스타일"
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/backIcon3"
+                android:id="@+id/backIcon5"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerInParent="true"
                 android:src="@drawable/arrow_right" />
-        </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -438,6 +440,7 @@
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
+            android:id="@+id/day_night_mode_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
