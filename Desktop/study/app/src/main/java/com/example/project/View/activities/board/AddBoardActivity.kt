@@ -1,14 +1,15 @@
+// AddBoardActivity.kt
 package com.example.project.View.activities.board
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.R
+import com.example.project.viewmodel.AddBoardViewModel
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
 
@@ -17,14 +18,12 @@ class AddBoardActivity : AppCompatActivity() {
     private lateinit var titleEditText: TextInputEditText
     private lateinit var selectedDateTextView: TextInputEditText
     private var datePickerDialog: DatePickerDialog? = null
+    private val viewModel: AddBoardViewModel by viewModels()
 
-    @SuppressLint("CutPasteId")
+    @SuppressLint("CutPasteId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_board)
-
-        val titleTextView: TextView = findViewById(R.id.title_text_view)
-        titleTextView.text = getString(R.string.layout_add_board)
 
         titleEditText = findViewById(R.id.text_input_title)
         selectedDateTextView = findViewById(R.id.text_selected_date)
@@ -40,12 +39,9 @@ class AddBoardActivity : AppCompatActivity() {
             val selectedDate = selectedDateTextView.text.toString().trim()
 
             if (title.isEmpty() || selectedDate.isEmpty()) {
-                Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             } else {
-                val returnIntent = Intent()
-                returnIntent.putExtra("title_board", title)
-                returnIntent.putExtra("text_selected_date", selectedDate)
-                setResult(RESULT_OK, returnIntent)
+                viewModel.saveBoardData(title, selectedDate)
                 finish()
             }
         }
