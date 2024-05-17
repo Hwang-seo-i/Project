@@ -26,14 +26,14 @@
                 android:clickable="true"
                 android:focusable="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <include
+                layout="@layout/layout_title"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="환경설정"
-                android:textColor="#3E6D3D"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/setting" />
 
         </RelativeLayout>
 
@@ -126,7 +126,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="동태 위치"
                 android:textSize="20sp" />
@@ -161,7 +160,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="동태 자동입력"
                 android:textSize="20sp" />
@@ -200,7 +198,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
                 android:layout_marginHorizontal="5dp"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="음량"
                 android:textSize="20sp" />
@@ -235,7 +232,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="안전운전 음성안내 항목"
                 android:textSize="20sp" />
@@ -274,7 +270,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="경로탐색옵션"
                 android:textSize="20sp" />
@@ -309,7 +304,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="경로안내색상"
                 android:textSize="20sp" />
@@ -320,8 +314,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true"
                 android:gravity="right"
                 android:text="파랑색"
                 android:textColor="#3FA246"
@@ -348,7 +340,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="지도 자동 축척"
                 android:textSize="20sp" />
@@ -359,7 +350,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -383,7 +373,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="지도 자동 축척"
                 android:textSize="20sp" />
@@ -394,7 +383,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -419,7 +407,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="지도 스타일"
                 android:textSize="20sp" />
@@ -452,7 +439,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:focusable="true"
                 android:text="@string/night_day"
                 android:textSize="20sp" />

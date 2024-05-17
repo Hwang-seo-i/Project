@@ -1,10 +1,11 @@
-package com.example.project
+package com.example.project.View.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.project.board.BoardActivity
+import com.example.project.R
+import com.example.project.View.activities.board.BoardActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

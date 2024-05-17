@@ -1,4 +1,4 @@
-package com.example.project.board
+package com.example.project.model.data
 
 import java.io.Serializable
 

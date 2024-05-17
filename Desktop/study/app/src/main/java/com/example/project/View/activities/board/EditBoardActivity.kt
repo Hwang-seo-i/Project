@@ -1,16 +1,17 @@
-package com.example.project.board
+package com.example.project.View.activities.board
 
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.project.R
+import com.example.project.model.data.BoardDataClass
 import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class EditBoardActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class EditBoardActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_board)
+        setContentView(R.layout.activity_add_board)
 
         val titleTextView: TextView = findViewById(R.id.title_text_view)
         titleTextView.text = getString(R.string.layout_edit_board)
@@ -30,6 +31,23 @@ class EditBoardActivity : AppCompatActivity() {
 
         val boardData = intent.getSerializableExtra("boardData") as BoardDataClass
         val position = intent.getIntExtra("position", -1)
+
+        val isEditing = intent.getBooleanExtra("isEditing", false)
+        val saveButton: Button = findViewById(R.id.btnsave)
+        saveButton.setOnClickListener {
+            val title = titleEditText.text.toString().trim()
+            val selectedDate = selectedDateTextView.text.toString().trim()
+
+            if (title.isNotEmpty() && selectedDate.isNotEmpty()) {
+                val returnIntent = Intent()
+                returnIntent.putExtra("title_board", title)
+                returnIntent.putExtra("text_selected_date", selectedDate)
+                returnIntent.putExtra("position", position)
+                setResult(RESULT_OK, returnIntent)
+                finish()
+            }
+        }
+        saveButton.text = if (isEditing) "수정" else "등록"
 
         titleEditText.setText(boardData.title)
         selectedDateTextView.setText(boardData.date)
@@ -49,24 +67,8 @@ class EditBoardActivity : AppCompatActivity() {
             calendar.get(Calendar.DAY_OF_MONTH)
         )
 
-        // Show the date picker dialog when the date text view is clicked
         selectedDateTextView.setOnClickListener {
             datePickerDialog?.show()
-        }
-
-        val saveButton: Button = findViewById(R.id.btnsave)
-        saveButton.setOnClickListener {
-            val title = titleEditText.text.toString().trim()
-            val selectedDate = selectedDateTextView.text.toString().trim()
-
-            if (title.isNotEmpty() && selectedDate.isNotEmpty()) {
-                val returnIntent = Intent()
-                returnIntent.putExtra("title_board", title)
-                returnIntent.putExtra("text_selected_date", selectedDate)
-                returnIntent.putExtra("position", position)
-                setResult(RESULT_OK, returnIntent)
-                finish()
-            }
         }
     }
 }

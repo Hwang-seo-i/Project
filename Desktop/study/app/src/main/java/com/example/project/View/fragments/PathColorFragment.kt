@@ -1,15 +1,18 @@
-package com.example.project.Fragment
+package com.example.project.View.fragments
 
 import android.content.Context
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
-import com.example.project.PreferenceManager
+import com.example.project.model.repository.PreferenceManager
 import com.example.project.R
 
 class PathColorFragment : DialogFragment() {
@@ -98,5 +101,25 @@ class PathColorFragment : DialogFragment() {
             "초록색" -> view?.findViewById<RadioButton>(R.id.btn_green)?.isChecked = true
             "노란색" -> view?.findViewById<RadioButton>(R.id.btn_yellow)?.isChecked = true
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.let { window ->
+            val size = Point()
+            val display = window.windowManager.defaultDisplay
+            display.getSize(size)
+
+            val radioButtonCount = radioGroup.childCount
+
+            val heightPerButton = size.y * 0.13
+            val height = (radioButtonCount * heightPerButton).toInt()
+
+            val width = (size.x * 0.5).toInt()
+
+            window.setLayout(width, height)
+            window.setGravity(Gravity.CENTER)
+        }
+        val titleTextView: TextView? = view?.findViewById(R.id.title_text_view)
+        titleTextView?.text = getString(R.string.path_color)
     }
 }

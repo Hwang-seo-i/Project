@@ -1,16 +1,16 @@
-package com.example.project.board
+package com.example.project.View.activities.board
 
-import android.widget.Toast
-import android.widget.Button
-import android.widget.ImageButton
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.project.R
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Calendar
-import android.app.DatePickerDialog
-import android.widget.TextView
-import com.example.project.R
 
 class AddBoardActivity : AppCompatActivity() {
 
@@ -18,6 +18,7 @@ class AddBoardActivity : AppCompatActivity() {
     private lateinit var selectedDateTextView: TextInputEditText
     private var datePickerDialog: DatePickerDialog? = null
 
+    @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_board)
@@ -28,8 +29,8 @@ class AddBoardActivity : AppCompatActivity() {
         titleEditText = findViewById(R.id.text_input_title)
         selectedDateTextView = findViewById(R.id.text_selected_date)
 
-        val calendarIcon: ImageButton = findViewById(R.id.calender_icon)
-        calendarIcon.setOnClickListener {
+        val selectedDateEditText: TextInputEditText = findViewById(R.id.text_selected_date)
+        selectedDateEditText.setOnClickListener {
             showDatePickerDialog()
         }
 

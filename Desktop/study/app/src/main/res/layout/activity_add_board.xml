@@ -8,7 +8,11 @@
 
     <include
         layout="@layout/layout_title"
-        android:text="@string/layout_add_board" />
+        android:text="@string/layout_add_board"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,24 +38,20 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                tools:ignore="MissingConstraints">
+                tools:ignore="MissingConstraints"
+                app:endIconDrawable="@drawable/calendar"
+                app:endIconMode="custom">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/text_selected_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/date" />
+                    android:hint="@string/date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:focusableInTouchMode="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageButton
-                android:id="@+id/calender_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginEnd="15dp"
-                android:src="@drawable/calendar" />
         </RelativeLayout>
 
         <Button
@@ -59,7 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:backgroundTint="@color/green" />
 
     </LinearLayout>
 

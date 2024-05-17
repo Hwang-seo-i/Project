@@ -1,15 +1,18 @@
-package com.example.project.Fragment
+package com.example.project.View.fragments
 
 import android.content.Context
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
-import com.example.project.PreferenceManager
+import com.example.project.model.repository.PreferenceManager
 import com.example.project.R
 
 class LocationSelectDialogFragment : DialogFragment() {
@@ -40,20 +43,6 @@ class LocationSelectDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         radioGroup = view.findViewById(R.id.RadioGroup)
-
-//        radioGroup.setOnCheckedChangeListener { group, checkedId ->
-//            when (checkedId) {
-//                R.id.radioButton -> {
-//                    PreferenceManager.setString(requireContext(), "location", "왼쪽")
-//                    listener?.onLocationSelected("왼쪽")
-//                }
-//
-//                R.id.radioButton2 -> {
-//                    PreferenceManager.setString(requireContext(), "location", "오른쪽")
-//                    listener?.onLocationSelected("오른쪽")
-//                }
-//            }
-//        }
 
         setLocationCheckedState()
 
@@ -86,5 +75,22 @@ class LocationSelectDialogFragment : DialogFragment() {
             "왼쪽" -> radioGroup.check(R.id.radioButton)
             "오른쪽" -> radioGroup.check(R.id.radioButton2)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.let { window ->
+            val size = Point()
+            val display = window.windowManager.defaultDisplay
+            display.getSize(size)
+
+            val width = (size.x * 0.5).toInt()
+            val height = (size.y * 0.4).toInt()
+
+            window.setLayout(width, height)
+            window.setGravity(Gravity.CENTER)
+        }
+        val titleTextView: TextView? = view?.findViewById(R.id.title_text_view)
+        titleTextView?.text = getString(R.string.location)
     }
 }

@@ -6,16 +6,14 @@
     android:gravity="center"
     android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/dialog_title_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:text="경로 안내 색상" />
+    <include
+        layout="@layout/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -57,8 +55,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/dialog_no_btn"
@@ -76,7 +75,7 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="#FF6B6B"
+            android:background="@color/green"
             android:text="확인"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />

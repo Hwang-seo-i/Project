@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Project</string>
     <string name="layout_board">게시판</string>
-    <string name="layout_add_board">게시판 추가</string>
+    <string name="layout_add_board">게시판 등록</string>
     <string name="layout_edit_board">게시판 수정</string>
     <string name="title">제목</string>
     <string name="date">날짜</string>
@@ -10,6 +10,10 @@
     <string name="night_day">주간/야간 모드</string>
     <string name="auto">자동으로 변경</string>
     <string name="setting">환경설정</string>
+    <string name="location">동태위치</string>
+    <string name="path_color">경로 안내 색상</string>
+    <string name="path_search">경로 탐색 옵션</string>
+    <string name="voice_guide">"안전운전 음성안내 항목"</string>
     <string name="map_style">지도 스타일</string>
     <string name="blue">파란색</string>
     <string name="green">초록색</string>

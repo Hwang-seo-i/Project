@@ -1,12 +1,15 @@
-package com.example.project.Fragment
+package com.example.project.View.fragments
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
 import com.example.project.R
@@ -55,5 +58,20 @@ class VoiceGuideDialogFragment : DialogFragment() {
             dismiss() // 다이얼로그 닫기
         }
     }
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.let { window ->
+            val size = Point()
+            val display = window.windowManager.defaultDisplay
+            display.getSize(size)
 
+            val width = (size.x * 0.5).toInt()
+            val height = (size.y * 0.5).toInt()
+
+            window.setLayout(width, height)
+            window.setGravity(Gravity.CENTER)
+        }
+        val titleTextView: TextView? = view?.findViewById(R.id.title_text_view)
+        titleTextView?.text = getString(R.string.voice_guide)
+    }
 }
