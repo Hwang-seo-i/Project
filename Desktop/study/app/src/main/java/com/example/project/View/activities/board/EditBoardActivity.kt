@@ -5,19 +5,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.example.project.R
 import com.example.project.model.data.BoardDataClass
+import com.example.project.viewmodel.EditBoardViewModel
 import com.google.android.material.textfield.TextInputEditText
-import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 
 class EditBoardActivity : AppCompatActivity() {
 
     private lateinit var titleEditText: TextInputEditText
     private lateinit var selectedDateTextView: TextInputEditText
     private var datePickerDialog: DatePickerDialog? = null
+
+    private val viewModel: EditBoardViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,36 +35,43 @@ class EditBoardActivity : AppCompatActivity() {
 
         val boardData = intent.getSerializableExtra("boardData") as BoardDataClass
         val position = intent.getIntExtra("position", -1)
-
         val isEditing = intent.getBooleanExtra("isEditing", false)
+
+        viewModel.setBoardData(boardData, position, isEditing)
+
+        viewModel.title.observe(this, Observer { title ->
+            titleEditText.setText(title)
+        })
+
+        viewModel.selectedDate.observe(this, Observer { date ->
+            selectedDateTextView.setText(date)
+        })
+
         val saveButton: Button = findViewById(R.id.btnsave)
+        saveButton.text = if (isEditing) "수정" else "등록"
         saveButton.setOnClickListener {
             val title = titleEditText.text.toString().trim()
             val selectedDate = selectedDateTextView.text.toString().trim()
 
-            if (title.isNotEmpty() && selectedDate.isNotEmpty()) {
-                val returnIntent = Intent()
-                returnIntent.putExtra("title_board", title)
-                returnIntent.putExtra("text_selected_date", selectedDate)
-                returnIntent.putExtra("position", position)
+            if (title.isEmpty() || selectedDate.isEmpty()) {
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+            } else {
+                val returnIntent = Intent().apply {
+                    putExtra("title_board", title)
+                    putExtra("text_selected_date", selectedDate)
+                    putExtra("position", position)
+                }
                 setResult(RESULT_OK, returnIntent)
                 finish()
             }
         }
-        saveButton.text = if (isEditing) "수정" else "등록"
 
-        titleEditText.setText(boardData.title)
-        selectedDateTextView.setText(boardData.date)
-
-        // Set up the date picker dialog
         val calendar = Calendar.getInstance()
         datePickerDialog = DatePickerDialog(
             this,
             { _, year, month, dayOfMonth ->
-                val selectedDate = Calendar.getInstance()
-                selectedDate.set(year, month, dayOfMonth)
-                val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate.time)
-                selectedDateTextView.setText(date)
+                val date = viewModel.getFormattedDate(year, month, dayOfMonth)
+                viewModel.updateSelectedDate(date)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),

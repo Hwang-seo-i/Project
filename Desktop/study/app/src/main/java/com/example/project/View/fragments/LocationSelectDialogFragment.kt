@@ -12,26 +12,29 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
-import com.example.project.model.repository.PreferenceManager
 import com.example.project.R
+import com.example.project.model.repository.PreferenceManager
 
 class LocationSelectDialogFragment : DialogFragment() {
 
     private lateinit var radioGroup: RadioGroup
 
-    // 콜백 인터페이스 정의
+    // 선택된 위치를 SettingActivity로 전달하는 인터페이스
     interface LocationSelectListener {
         fun onLocationSelected(position: String)
     }
 
     private var listener: LocationSelectListener? = null
 
+    // Fragment가 연결될 때 리스너 연결
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
         listener = context as? LocationSelectListener
     }
 
+    // activity_location_select inflate
+    // xml 코드들을 객체화해 소스코드에서 사용
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,18 +42,20 @@ class LocationSelectDialogFragment : DialogFragment() {
         return inflater.inflate(R.layout.activity_location_select, container, false)
     }
 
+    // 뷰가 생성된 후 설정
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         radioGroup = view.findViewById(R.id.RadioGroup)
 
+        // 저장된 위치에 따라 라디오 버튼의 체크 상태 설정
         setLocationCheckedState()
 
         view.findViewById<AppCompatButton>(R.id.dialog_yes_btn).setOnClickListener {
             val selectedRadioButtonId = radioGroup.checkedRadioButtonId
             val selectedRadioButton = view.findViewById<RadioButton>(selectedRadioButtonId)
             val position = selectedRadioButton.text.toString()
-            if (position.equals("왼쪽으로 변경")) {
+            if (position.equals("왼쪽")) {
                 PreferenceManager.setString(requireContext(), "location", "왼쪽")
                 listener?.onLocationSelected("왼쪽")
             } else {
